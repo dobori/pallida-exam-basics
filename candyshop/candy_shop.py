@@ -17,24 +17,83 @@
 # The CandyShop should be represented as string in this format:
 # "Inventory: 3 candies, 2 lollipops, Income: 100, Sugar: 400gr"
 
-candy_shop = CandyShop(300)
-candy_shop.create_sweets("candy")
-candy_shop.create_sweets("candy")
-candy_shop.create_sweets("lollipop")
-candy_shop.create_sweets("lollipop")
-print(candy_shop)
+class Candy(object):
+    
+    
+    def __init__(self):
+        self.type_of_sweet == type_of_sweet
+        if self.type_of_sweet == "candy":
+            self.price_per_piece = 20
+            self.needed_sugar = 10
+        elif self.type_of_sweet == "lollipop":
+            self.price_per_piece = 10
+            self.needed_sugar = 5
+
+    def raise_prices(self, percent):
+        self.price_per_piece += self.price_per_piece / 100 * float(self.percent)
+        return(self.price_per_piece)
+
+   
+class CandyShop(object):
+
+    def __init__(self, all_sugar):
+        self.all_sugar = all_sugar
+        self.all_money = 0
+        self.candies = []
+
+
+    def create_sweets(self, type_of_sweet):
+        self.candies.append(str(type_of_sweet))
+
+
+    def get_status(self):
+        sum_candy = 0
+        sum_lollipop = 0
+        for candy in self.candies:
+            if self.candy.type_of_sweet == "candy":
+                sum_candy += 1
+                sugar_candy = self.candy.type_of_sweet(self.needed_sugar)
+            if self.candy.type_of_sweet == "lollipop":
+                sum_lollipop += 1
+                sugar_lollipop = candy.type_of_sweet(self.needed_sugar)
+        all_sugar -= sum_candy * sugar_candy + sum_lollipop * sugar_lollipop
+        return "Invetory: "+ sum_candy + " candies, " + sum_lollipop + " lollipops, Income: 0, Sugar: " + all_sugar + "gr"
+
+    def sell(self):
+        pass
+        
+
+    def buy_sugar(self):
+        pass
+
+
+
+
+# candy_shop = CandyShop(300)
+# candy_shop.create_sweets("candy")
+# candy_shop.create_sweets("candy")
+# candy_shop.create_sweets("lollipop")
+# candy_shop.create_sweets("lollipop")
+# print(candy_shop)
 # Should print out:
 # Invetory: 2 candies, 2 lollipops, Income: 0, Sugar: 270gr
-candy_shop.sell("candy", 1)
-print(candy_shop
+
+#candy_shop.sell("candy", 1)
+#print(candy_shop
+
+
 # Should print out:
 # "Invetory: 1 candies, 2 lollipops, Income:20, Sugar: 285gr"
-candy_shop.raise_prices(5)
-candy_shop.sell("lollipop", 1)
-print(candy_shop)
+
+#candy_shop.raise_prices(5)
+#candy_shop.sell("lollipop", 1)
+#print(candy_shop)
+
 # Should print out:
 # "Invetory: 1 candies, 1 lollipops, Income:35, Sugar: 285gr"
-candy_shop.buy_sugar(300)
-print(candy_shop)
+
+#candy_shop.buy_sugar(300)
+#print(candy_shop)
+
 # Should print out:
 # "Invetory: 1 candies, 1 lollipops, Income:5, Sugar: 315gr"
