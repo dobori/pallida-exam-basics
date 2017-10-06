@@ -18,13 +18,17 @@ class FavAnimal(object):
     def __init__(self):
         if len(sys.argv) == 1:
             print("Usage: favoureite_animals [animal] [animal]")
-        if len(sys.argv) > 1:
+        elif len(sys.argv) >= 2:
+            return self.add_animal(self.index)
 
-            self.index = str(sys.argv[2])
-            return self.add_todo(self.index)
 
     def add_animal(self, index):
-        animal_input = self.index
-        self.textfile = open("favourites.txt", "a")
-        self.textfile.write("0 " + animal_input + "\n")
-        self.textfile.close()
+        for self.index in sys.argv:
+            if self.index != "favourite_animals.py":
+                animal_input = self.index
+                self.textfile = open( "favourites.txt", "a" )
+                self.textfile.write( animal_input + "\n")
+                self.textfile.close()
+
+favourite = FavAnimal()
+
